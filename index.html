@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crochet Creations: Learn to Crochet!</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section#home {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            gap: 20px;
+        }
+
+        header {
+            background-color: #00396d;
+            color: #ffc400;
+            font-family: 'Times New Roman', Times, serif;
+            width: auto;
+            height: 110px;
+            padding: 20px;
+            text-align: center;
+            margin: 10px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #cfbe00;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #7f7500;
+            text-decoration: underline;
+        }
+
+        .banner-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            border-radius: 10px;
+        }
+
+        .banner-text {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 2;
+            color: #cfbe00;
+            text-align: center;
+            align-content: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            color: #fffcec;
+        }
+
+        .tutorial-card {
+            background-color: #d0e6fd9d;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tutorial-card img {
+            width: 50%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: #000000 0px 0px 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tutorial-card h1 {
+            color: #cfbe00;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 2.5em;
+            margin: 0;
+            text-align: center;
+        }
+
+        .tutorial-card h2 {
+            color: #cfbe00;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 2em;
+            margin: 0;
+            text-align: center;
+        }
+
+        .tutorial-card h3,
+        .project-card h3 {
+            color: #cfbe00;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.5em;
+            margin: 0;
+            text-align: center;
+        }
+
+        h2 {
+            color: #cfbe00;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 2em;
+            margin: 0;
+            text-align: center;
+        }
+
+        .basic-card {
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .basic-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .button {
+            background-color: #cfbe00;
+            color: #fffcec;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 5px;
+        }
+
+        .button:hover {
+            background-color: #7f7500;
+            text-decoration: underline;
+            color: #fffcec;
+        }
+
+        section#contact {
+            padding: 20px;
+            ;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 0 auto;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .contact form label {
+            flex: 1 1 100%;
+            text-align: left;
+        }
+
+        .contact form input,
+        .contact form textarea {
+            flex: 1 1 calc(33.33% - 300px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+
+        .contact form textarea {
+            flex: 1 1 calc(33.33% - 30px);
+            resize: vertical;
+        }
+
+        .contact form button {
+            flex: 1 1 100%;
+            background-color: #ffffff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact form button:hover {
+            background-color: #bdbdbd;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 15px;
+            overflow-x: auto;
+            margin: 0 auto;
+            max-width: 100%;
+            text-align: center;
+            scroll-behavior: smooth;
+            padding: 10px;
+        }
+
+        .project-card {
+            flex: 0 0 auto;
+            /* Prevent cards from shrinking and ensure they stay in one row */
+            background-color: #d0e6fd9d;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px 0;
+            /* Add vertical spacing */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 300px;
+            /* Set a fixed width for each card */
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 60%;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: #000000 0px 0px 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card .button {
+            display: inline-block;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            header {
+                height: auto;
+                padding: 10px;
+            }
+
+            .banner-image,
+            .banner-text {
+                width: 100%;
+                height: auto;
+            }
+
+            .tutorial-card,
+            .project-card {
+                width: 100%;
+                margin: 10px auto;
+            }
+
+            .tutorial-card img,
+            .project-card img {
+                width: 100%;
+                height: auto;
+            }
+
+            .basic-card,
+            .basic-card img {
+                width: 100%;
+                height: auto;
+            }
+
+            .button {
+                display: block;
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact form input,
+            .contact form textarea,
+            .contact form button .contact form label {
+                flex: 1 1 100%;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #00396d;
+            color: #fffcec;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Crochet Creations</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#basics">Basics</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <img src="https://i0.wp.com/thecraftroom.ch/wordpress/wp-content/uploads/2021/08/PXL_20210822_144048183-1-scaled.jpg?fit=2558%2C2560&ssl=1"
+                alt="A colorful crochet banner" class="banner-image">
+            <div class="banner-text">
+                <h2>Welcome to Crochet Creations!</h2>
+                <p>Discover the joy of crochet with our easy-to-follow tutorials and inspiring projects.</p>
+                <a href="#basics" class="button">Get Started</a>
+            </div>
+        </section>
+
+        <section id="basics">
+            <h2>Crochet Basics</h2>
+            <div class="tutorial-card">
+                <img src="https://joyofmotioncrochet.com/wp-content/uploads/2023/08/how-to-back-loop-single-crochet-featured.jpg"
+                    alt="Single Crochet Stitch">
+                <h3>Single Crochet Stitch</h3>
+                <p>Learn how to make the single crochet stitch.</p>
+                <a href="#" class="button">Watch Tutorial</a>
+            </div>
+            <div class="tutorial-card">
+                <img src="https://www.thesprucecrafts.com/thmb/SIUu9wBwnU0ej70GhLyjo4Mp9NY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/HalfDoubleCrochet1-5c5f21c046e0fb0001587590.jpg"
+                    alt="Double Crochet Stitch">
+                <h3>Double Crochet Stitch</h3>
+                <p>Learn how to make the double crochet stitch.</p>
+                <a href="#" class="button">Watch Tutorial</a>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="container">
+                <div class="project-card">
+                    <img src="https://www.crochet365knittoo.com/wp-content/uploads/2022/11/2-1024x597.webp"
+                        alt="Crochet Blanket">
+                    <h3>Cozy Crochet Blanket</h3>
+                    <p>A beautiful blanket to crochet for your home.</p>
+                    <a href="#" class="button">Get Pattern</a>
+                </div>
+                <div class="project-card">
+                    <img src="https://makeanddocrew.com/wp-content/uploads/2016/10/caron-cakes-crochet-pattern-free-triangle-scarf-15.jpg"
+                        alt="Crochet Scarf">
+                    <h3>Stylish Crochet Scarf</h3>
+                    <p>A fun and easy scarf to crochet for any season.</p>
+                    <a href="#" class="button">Get Pattern</a>
+                </div>
+                <div class="project-card">
+                    <img src="https://loopara.com/cdn/shop/articles/How_To_Crochet_A_Wineglass_Rose_Flower.jpg?v=1721980909"
+                        alt="Crochet Rose">
+                    <h3>Crochet Rose</h3>
+                    <p>A romantic rose to give for your loveones.</p>
+                    <a href="#" class="button">Get Pattern</a>
+                </div>
+                <div class="project-card">
+                    <img src="https://i.ytimg.com/vi/LGRotJTw6cU/maxresdefault.jpg" alt="Crochet Tulips">
+                    <h3>Crochet Tulips</h3>
+                    <p>A beautiful tulip to crochet for your home.</p>
+                    <a href="#" class="button">Get Pattern</a>
+                </div>
+                <div class="project-card">
+                    <img src="https://preview.redd.it/mens-hexagon-cardigan-v0-u2lw3um3jt0b1.png?width=640&crop=smart&auto=webp&s=795f4ad22c468788a2f0f119b84f5a169f625078"
+                        alt="Crochet Baby Cardigan">
+                    <h3>Baby Cardigan</h3>
+                    <p>A cute cardigan for your little one.</p>
+                    <a href="#" class="button">Get Pattern</a>
+                </div>
+                <div class="project-card">
+                    <img src="https://cdn.shopify.com/s/files/1/2284/3931/files/KhxwRuR03kPI2AL6Ek2v2lCIp61yjtHs1666212431.jpg?v=1666282894"
+                        alt="Crochet Stuffed Animal">
+                    <h3>Stuffed Animal</h3>
+                    <p>A cute stuffed animal to crochet for your little one.</p>
+                    <a href="#" class="button">Get Pattern</a>
+                </div>
+                <div class="project-card">
+                    <img src="https://i0.wp.com/www.jenhayescreations.com/wp-content/uploads/2018/03/SlouchCap02.jpg?fit=800%2C533&ssl=1"
+                        alt="Crochet Slouchy Hat">
+                    <h3>Slouchy Hat</h3>
+                    <p>A stylish hat to keep you warm.</p>
+                    <a href="#" class="button">Get Pattern</a>
+                </div>
+                <div class="project-card">
+                    <img src="https://i.pinimg.com/736x/da/05/f6/da05f659a0841840931ba79e01a519a5.jpg"
+                        alt="Crochet bags">
+                    <h3>Stylish Crochet Bag</h3>
+                    <p>A trendy bag to carry your essentials.</p>
+                    <a href="#" class="button">Get Pattern</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Have a question or want to share your crochet creations? Get in touch with us!</p>
+            <form action="process-form.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Crochet Creations</p>
+    </footer>
+</body>
+
+</html>
