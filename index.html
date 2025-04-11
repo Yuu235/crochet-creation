@@ -217,6 +217,12 @@
             background-color: #bdbdbd;
         }
 
+        .container-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
         .container {
             display: flex;
             flex-wrap: nowrap;
@@ -227,6 +233,48 @@
             text-align: center;
             scroll-behavior: smooth;
             padding: 10px;
+            scrollbar-width: none;
+            /* For Firefox */
+            -ms-overflow-style: none;
+            /* For Internet Explorer and Edge */
+        }
+
+        .container::-webkit-scrollbar {
+            display: none;
+            /* For Chrome, Safari, and Opera */
+        }
+
+
+        .scroll-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            z-index: 10;
+            transition: opacity 0.3s ease;
+        }
+
+        #scroll-left {
+            left: 10px;
+        }
+
+        #scroll-right {
+            right: 10px;
+        }
+
+        .scroll-button:disabled {
+            opacity: 0;
+            pointer-events: none;
         }
 
         .project-card {
@@ -366,63 +414,66 @@
 
         <section id="projects">
             <h2>Featured Projects</h2>
-            <div class="container">
-                <div class="project-card">
-                    <img src="https://www.crochet365knittoo.com/wp-content/uploads/2022/11/2-1024x597.webp"
-                        alt="Crochet Blanket">
-                    <h3>Cozy Crochet Blanket</h3>
-                    <p>A beautiful blanket to crochet for your home.</p>
-                    <a href="#" class="button">Get Pattern</a>
+            <div class="container-wrapper">
+                <button id="scroll-left" class="scroll-button">&lt;</button>
+                <div class="container">
+                    <div class="project-card">
+                        <img src="https://www.crochet365knittoo.com/wp-content/uploads/2022/11/2-1024x597.webp"
+                            alt="Crochet Blanket">
+                        <h3>Cozy Crochet Blanket</h3>
+                        <p>A beautiful blanket to crochet for your home.</p>
+                        <a href="#" class="button">Get Pattern</a>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://makeanddocrew.com/wp-content/uploads/2016/10/caron-cakes-crochet-pattern-free-triangle-scarf-15.jpg"
+                            alt="Crochet Scarf">
+                        <h3>Stylish Crochet Scarf</h3>
+                        <p>A fun and easy scarf to crochet for any season.</p>
+                        <a href="#" class="button">Get Pattern</a>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://loopara.com/cdn/shop/articles/How_To_Crochet_A_Wineglass_Rose_Flower.jpg?v=1721980909"
+                            alt="Crochet Rose">
+                        <h3>Crochet Rose</h3>
+                        <p>A romantic rose to give for your loveones.</p>
+                        <a href="#" class="button">Get Pattern</a>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://i.ytimg.com/vi/LGRotJTw6cU/maxresdefault.jpg" alt="Crochet Tulips">
+                        <h3>Crochet Tulips</h3>
+                        <p>A beautiful tulip to crochet for your home.</p>
+                        <a href="#" class="button">Get Pattern</a>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://preview.redd.it/mens-hexagon-cardigan-v0-u2lw3um3jt0b1.png?width=640&crop=smart&auto=webp&s=795f4ad22c468788a2f0f119b84f5a169f625078"
+                            alt="Crochet Baby Cardigan">
+                        <h3>Baby Cardigan</h3>
+                        <p>A cute cardigan for your little one.</p>
+                        <a href="#" class="button">Get Pattern</a>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://cdn.shopify.com/s/files/1/2284/3931/files/KhxwRuR03kPI2AL6Ek2v2lCIp61yjtHs1666212431.jpg?v=1666282894"
+                            alt="Crochet Stuffed Animal">
+                        <h3>Stuffed Animal</h3>
+                        <p>A cute stuffed animal to crochet for your little one.</p>
+                        <a href="#" class="button">Get Pattern</a>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://i0.wp.com/www.jenhayescreations.com/wp-content/uploads/2018/03/SlouchCap02.jpg?fit=800%2C533&ssl=1"
+                            alt="Crochet Slouchy Hat">
+                        <h3>Slouchy Hat</h3>
+                        <p>A stylish hat to keep you warm.</p>
+                        <a href="#" class="button">Get Pattern</a>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://i.pinimg.com/736x/da/05/f6/da05f659a0841840931ba79e01a519a5.jpg"
+                            alt="Crochet bags">
+                        <h3>Stylish Crochet Bag</h3>
+                        <p>A trendy bag to carry your essentials.</p>
+                        <a href="#" class="button">Get Pattern</a>
+                    </div>
+                    <button id="scroll-right" class="scroll-button">&gt;</button>
                 </div>
-                <div class="project-card">
-                    <img src="https://makeanddocrew.com/wp-content/uploads/2016/10/caron-cakes-crochet-pattern-free-triangle-scarf-15.jpg"
-                        alt="Crochet Scarf">
-                    <h3>Stylish Crochet Scarf</h3>
-                    <p>A fun and easy scarf to crochet for any season.</p>
-                    <a href="#" class="button">Get Pattern</a>
-                </div>
-                <div class="project-card">
-                    <img src="https://loopara.com/cdn/shop/articles/How_To_Crochet_A_Wineglass_Rose_Flower.jpg?v=1721980909"
-                        alt="Crochet Rose">
-                    <h3>Crochet Rose</h3>
-                    <p>A romantic rose to give for your loveones.</p>
-                    <a href="#" class="button">Get Pattern</a>
-                </div>
-                <div class="project-card">
-                    <img src="https://i.ytimg.com/vi/LGRotJTw6cU/maxresdefault.jpg" alt="Crochet Tulips">
-                    <h3>Crochet Tulips</h3>
-                    <p>A beautiful tulip to crochet for your home.</p>
-                    <a href="#" class="button">Get Pattern</a>
-                </div>
-                <div class="project-card">
-                    <img src="https://preview.redd.it/mens-hexagon-cardigan-v0-u2lw3um3jt0b1.png?width=640&crop=smart&auto=webp&s=795f4ad22c468788a2f0f119b84f5a169f625078"
-                        alt="Crochet Baby Cardigan">
-                    <h3>Baby Cardigan</h3>
-                    <p>A cute cardigan for your little one.</p>
-                    <a href="#" class="button">Get Pattern</a>
-                </div>
-                <div class="project-card">
-                    <img src="https://cdn.shopify.com/s/files/1/2284/3931/files/KhxwRuR03kPI2AL6Ek2v2lCIp61yjtHs1666212431.jpg?v=1666282894"
-                        alt="Crochet Stuffed Animal">
-                    <h3>Stuffed Animal</h3>
-                    <p>A cute stuffed animal to crochet for your little one.</p>
-                    <a href="#" class="button">Get Pattern</a>
-                </div>
-                <div class="project-card">
-                    <img src="https://i0.wp.com/www.jenhayescreations.com/wp-content/uploads/2018/03/SlouchCap02.jpg?fit=800%2C533&ssl=1"
-                        alt="Crochet Slouchy Hat">
-                    <h3>Slouchy Hat</h3>
-                    <p>A stylish hat to keep you warm.</p>
-                    <a href="#" class="button">Get Pattern</a>
-                </div>
-                <div class="project-card">
-                    <img src="https://i.pinimg.com/736x/da/05/f6/da05f659a0841840931ba79e01a519a5.jpg"
-                        alt="Crochet bags">
-                    <h3>Stylish Crochet Bag</h3>
-                    <p>A trendy bag to carry your essentials.</p>
-                    <a href="#" class="button">Get Pattern</a>
-                </div>
-            </div>
         </section>
 
         <section id="contact">
@@ -441,6 +492,35 @@
                 <button type="submit">Send Message</button>
             </form>
         </section>
+
+        <script>
+            // filepath: c:\Users\Russel\.vscode\Crochet\index.html
+            const container = document.querySelector('.container');
+            const scrollLeftButton = document.getElementById('scroll-left');
+            const scrollRightButton = document.getElementById('scroll-right');
+
+            // Scroll left
+            scrollLeftButton.addEventListener('click', () => {
+                container.scrollBy({ left: -300, behavior: 'smooth' });
+            });
+
+            // Scroll right
+            scrollRightButton.addEventListener('click', () => {
+                container.scrollBy({ left: 300, behavior: 'smooth' });
+            });
+
+            // Update button visibility
+            const updateButtonVisibility = () => {
+                scrollLeftButton.disabled = container.scrollLeft === 0;
+                scrollRightButton.disabled = container.scrollLeft + container.offsetWidth >= container.scrollWidth;
+            };
+
+            // Attach scroll event listener
+            container.addEventListener('scroll', updateButtonVisibility);
+
+            // Initial button visibility
+            updateButtonVisibility();
+        </script>
     </main>
 
     <footer>
